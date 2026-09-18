@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#08090d"><title>MB AI — Local AI Assistant</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar" id="sidebar">
+<div class="brand"><div class="brand-mark">MB</div><div><b>MB AI</b><span>Local intelligence</span></div></div>
+<button class="new-chat" id="newChat">＋ New chat</button>
+<div class="chat-list" id="chatList"></div>
+<div class="side-bottom"><button class="side-btn" id="settingsBtn">⚙ Settings</button>
+<div class="local-badge" id="localBadge"><i></i><span id="statusText">Checking local AI…</span></div></div>
+</aside>
+<main class="main">
+<header class="topbar"><button class="icon-btn mobile-only" id="menuBtn">☰</button>
+<div class="top-title"><b>MB AI</b><span>Qwen2.5 0.5B · llama.cpp</span></div>
+<button class="icon-btn" id="clearBtn" title="Clear current chat">⌫</button></header>
+<section class="workspace">
+<div class="hero" id="hero"><div class="face-wrap"><div class="face" id="face">
+<div class="eye eye-left"><span></span></div><div class="eye eye-right"><span></span></div><div class="mouth" id="mouth"></div>
+</div><div class="face-state" id="faceState">IDLE</div></div>
+<h1>Hi, I'm MB AI.</h1><p>A private AI assistant running locally on your Raspberry Pi.</p></div>
+<div class="messages" id="messages"></div>
+<div class="composer-area">
+<div class="quick-actions"><button data-prompt="Explain what you can do.">What can you do?</button><button data-prompt="Help me with a coding problem.">Help with code</button><button data-prompt="Give me a short idea for a project.">Project idea</button></div>
+<div class="composer"><textarea id="input" rows="1" placeholder="Message MB AI…"></textarea><button class="round-btn" id="voiceBtn" title="Voice input">🎙</button><button class="send-btn" id="sendBtn">↑</button></div>
+<div class="composer-note">Local model • No API key • No cloud AI required</div>
+</div>
+</section>
+</main>
+</div>
+<dialog id="settings"><div class="dialog-head"><b>MB AI Settings</b><button class="icon-btn" id="closeSettings">×</button></div>
+<label>Theme<select id="themeSelect"><option value="dark">Dark</option><option value="midnight">Midnight</option><option value="light">Light</option></select></label>
+<label class="check"><input type="checkbox" id="speakToggle"> Read AI replies aloud</label>
+<label class="check"><input type="checkbox" id="saveToggle" checked> Save chats in this browser</label>
+<div class="settings-info"><b>Runtime</b><br>Flask :8080 → llama-server :8081 → Qwen2.5 0.5B GGUF</div>
+</dialog>
+<script src="/static/app.js"></script>
+</body></html>
